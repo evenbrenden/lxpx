@@ -1,0 +1,130 @@
+#N canvas 34 39 837 446 10;
+#X obj -77 312 lxpx;
+#X text 587 17 midi channel;
+#X text -22 238 value;
+#X obj -77 102 vsl 15 128 32768 49151 0 0 empty empty group_delay 0
+-9 0 10 -262144 -1 -1 4500 1;
+#X obj -77 239 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 38573 256;
+#X obj 552 42 s midich;
+#X floatatom 552 17 5 0 0 0 - - -;
+#X obj -32 288 r midich;
+#X msg -67 288 1;
+#X obj -67 262 loadbang;
+#X obj 23 312 lxpx;
+#X text 78 238 value;
+#X obj 23 102 vsl 15 128 32768 49151 0 0 empty empty effects_level
+0 -9 0 10 -262144 -1 -1 1400 1;
+#X obj 23 239 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 34574 256;
+#X obj 68 288 r midich;
+#X obj 33 262 loadbang;
+#X obj 124 312 lxpx;
+#X text 179 238 value;
+#X obj 124 102 vsl 15 128 32768 49151 0 0 empty empty high_cut 0 -9
+0 10 -262144 -1 -1 900 1;
+#X obj 124 239 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 33929 256;
+#X obj 169 288 r midich;
+#X obj 134 262 loadbang;
+#X obj 224 312 lxpx;
+#X text 279 238 value;
+#X obj 224 102 vsl 15 128 32768 49151 0 0 empty empty delay_2_spread
+0 -9 0 10 -262144 -1 -1 1900 1;
+#X obj 224 239 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 35219 256;
+#X obj 269 288 r midich;
+#X obj 234 262 loadbang;
+#X obj 325 312 lxpx;
+#X text 380 238 value;
+#X obj 325 102 vsl 15 128 32768 49151 0 0 empty empty delay_3_spread
+0 -9 0 10 -262144 -1 -1 1500 1;
+#X obj 325 239 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 34703 256;
+#X obj 370 288 r midich;
+#X obj 335 262 loadbang;
+#X obj 425 312 lxpx;
+#X text 480 238 value;
+#X obj 425 239 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 33412.5 256;
+#X obj 470 288 r midich;
+#X obj 435 262 loadbang;
+#X obj 526 312 lxpx;
+#X text 581 238 value;
+#X obj 526 102 vsl 15 128 32768 49151 0 0 empty empty diffusion 0 -9
+0 10 -262144 -1 -1 400 1;
+#X obj 526 239 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 33284 256;
+#X obj 571 288 r midich;
+#X obj 536 262 loadbang;
+#X obj 626 312 lxpx;
+#X text 681 238 value;
+#X obj 626 102 vsl 15 128 32768 49151 0 0 empty empty rate 0 -9 0 10
+-262144 -1 -1 3500 1;
+#X obj 626 239 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
+10 -262144 -1 -1 37283 256;
+#X obj 671 288 r midich;
+#X obj 636 262 loadbang;
+#X obj 425 102 vsl 15 128 16384 49151 0 0 empty empty delay_3_feedback
+0 -9 0 10 -262144 -1 -1 6600 1;
+#X msg 33 288 2;
+#X msg 134 288 3;
+#X msg 234 288 4;
+#X msg 335 288 5;
+#X msg 435 288 6;
+#X msg 536 288 7;
+#X msg 636 288 8;
+#X obj -98 -17 cnv 15 15 15 empty empty LXP-1:DELAY1 20 12 0 40 -262144
+-66577 0;
+#X obj 552 -10 loadbang;
+#X obj -77 389 midiout;
+#X connect 0 0 61 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 6 0 5 0;
+#X connect 7 0 0 2;
+#X connect 8 0 0 1;
+#X connect 9 0 8 0;
+#X connect 10 0 61 0;
+#X connect 12 0 13 0;
+#X connect 13 0 10 0;
+#X connect 14 0 10 2;
+#X connect 15 0 52 0;
+#X connect 16 0 61 0;
+#X connect 18 0 19 0;
+#X connect 19 0 16 0;
+#X connect 20 0 16 2;
+#X connect 21 0 53 0;
+#X connect 22 0 61 0;
+#X connect 24 0 25 0;
+#X connect 25 0 22 0;
+#X connect 26 0 22 2;
+#X connect 27 0 54 0;
+#X connect 28 0 61 0;
+#X connect 30 0 31 0;
+#X connect 31 0 28 0;
+#X connect 32 0 28 2;
+#X connect 33 0 55 0;
+#X connect 34 0 61 0;
+#X connect 36 0 34 0;
+#X connect 37 0 34 2;
+#X connect 38 0 56 0;
+#X connect 39 0 61 0;
+#X connect 41 0 42 0;
+#X connect 42 0 39 0;
+#X connect 43 0 39 2;
+#X connect 44 0 57 0;
+#X connect 45 0 61 0;
+#X connect 47 0 48 0;
+#X connect 48 0 45 0;
+#X connect 49 0 45 2;
+#X connect 50 0 58 0;
+#X connect 51 0 36 0;
+#X connect 52 0 10 1;
+#X connect 53 0 16 1;
+#X connect 54 0 22 1;
+#X connect 55 0 28 1;
+#X connect 56 0 34 1;
+#X connect 57 0 39 1;
+#X connect 58 0 45 1;
+#X connect 60 0 6 0;
