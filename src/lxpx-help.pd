@@ -1,4 +1,4 @@
-#N canvas -4 -4 1280 734 10;
+#N canvas 337 139 816 375 10;
 #X obj 97 307 lxpx;
 #X floatatom 196 246 5 0 0 0 - - -;
 #X obj 196 6 loadbang;
@@ -20,11 +20,16 @@
 #X obj -16 245 nbx 5 14 -1e+037 1e+037 0 0 empty empty empty 0 -8 0
 10 -262144 -1 -1 32768 256;
 #X msg 196 73 0;
-#N canvas 665 239 450 300 lxpx-meta 0;
-#X text 20 20 NAME lxpx;
-#X text 20 35 AUTHOR Even Brenden (evenbrenden@gmail.com);
-#X restore 397 342 pd lxpx-meta;
-#X text 411 34 comment;
+#X text 443 14 lxpx PureData external for formatting MIDI SysEx messages
+to control Lexicon LXP-1 and LXP-5 audio effect units. Inlet #1: Parameter
+value Inlet #2: Parameter number Inlet #3: MIDI channel Outlet: Sequence
+of numbers that make a MIDI SysEx message A new value on inlet #1 will
+produce an output on the outlet. Usage: set up a MIDI connection to
+your LXP-X box. Hold LEARN button while passing a message for the box
+to learn what midi channel to listen to. Choose the desired effect
+on the box. Then see an LXP-X owner's manual for correct mappings of
+parameter number to valuespace (unipolar or bipolar) for that effect.
+2012 Even Brenden (evenbrenden@gmail.com);
 #X connect 0 0 4 0;
 #X connect 1 0 0 1;
 #X connect 2 0 11 0;
