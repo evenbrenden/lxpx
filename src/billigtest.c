@@ -1,4 +1,10 @@
 
+/*
+ * Quick and cheap "test framework"
+ *
+ * 2012 Even Brenden
+ */
+
 #include <stdio.h>
 #include "billigtest.h"
 

@@ -1,7 +1,9 @@
 
-/* 
-	TODO:
-*/
+/*
+ * lxpx PD external
+ *
+ * 2012 Even Brenden
+ */
 
 #include "m_pd.h"
 #include "lxpx_helpers.h"
@@ -65,7 +67,7 @@ void lxpx_new_value (t_lxpx *x, t_floatarg f)
 void *lxpx_new (void)
 {
     t_lxpx *x = (t_lxpx *) pd_new (lxpx_class);
-  	
+
 //	floatinlet_new (&x->x_obj, &x->value);
 	floatinlet_new (&x->x_obj, &x->parameter);
 	floatinlet_new (&x->x_obj, &x->midi_channel);
@@ -76,11 +78,11 @@ void *lxpx_new (void)
 
 void lxpx_setup (void)
 {
-    lxpx_class = class_new (gensym ("lxpx"), 
-							(t_newmethod) lxpx_new, 
+    lxpx_class = class_new (gensym ("lxpx"),
+							(t_newmethod) lxpx_new,
 							0,
-    						sizeof (t_lxpx), 
-							0, 
+    						sizeof (t_lxpx),
+							0,
 							0);
 
 	class_addfloat (lxpx_class, lxpx_new_value);
@@ -89,8 +91,8 @@ void lxpx_setup (void)
 	class_addbang (lxpx_class, lxpx_bang);
 
   	class_addmethod (	lxpx_class,
-        				(t_method) lxpx_send, 
-						gensym ("send"), 
+        				(t_method) lxpx_send,
+						gensym ("send"),
 						0);
 */
 

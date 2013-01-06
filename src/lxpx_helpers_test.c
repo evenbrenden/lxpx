@@ -1,4 +1,8 @@
 
+/*
+ * 2012 Even Brenden
+ */
+
 #include <stdio.h>
 #include "billigtest.h"
 #include "lxpx_helpers.h"
@@ -54,7 +58,7 @@ void test_msb_everyotherbit()
 	sjekk_sann (p_value.byte_1 == 0x00, navn);
 	sjekk_sann (p_value.byte_2 == 0x2A, navn);
 }
-	
+
 void test_lsb_everyotherbit()
 {
 	char navn[] = "test_lsb_everyotherbit";
