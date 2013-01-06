@@ -29,7 +29,7 @@ your LXP-X box. Hold LEARN button while passing a message for the box
 to learn what midi channel to listen to. Choose the desired effect
 on the box. Then see an LXP-X owner's manual for correct mappings of
 parameter number to valuespace (unipolar or bipolar) for that effect.
-2012 Even Brenden (evenbrenden@gmail.com);
+2012 Even Brenden (evenbrenden+lxpx at gmail);
 #X connect 0 0 4 0;
 #X connect 1 0 0 1;
 #X connect 2 0 11 0;
