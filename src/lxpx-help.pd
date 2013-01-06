@@ -1,4 +1,4 @@
-#N canvas 713 126 504 377 10;
+#N canvas -4 -4 1280 734 10;
 #X obj 97 307 lxpx;
 #X floatatom 196 246 5 0 0 0 - - -;
 #X obj 196 6 loadbang;
@@ -24,6 +24,7 @@
 #X text 20 20 NAME lxpx;
 #X text 20 35 AUTHOR Even Brenden (evenbrenden@gmail.com);
 #X restore 397 342 pd lxpx-meta;
+#X text 411 34 comment;
 #X connect 0 0 4 0;
 #X connect 1 0 0 1;
 #X connect 2 0 11 0;

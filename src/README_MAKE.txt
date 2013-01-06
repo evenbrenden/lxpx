@@ -1,6 +1,6 @@
 
 
-Notes on make
+NOTES ON MAKE
 
 
 Successfull builds in ./latest_build:

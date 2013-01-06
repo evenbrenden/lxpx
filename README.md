@@ -12,3 +12,9 @@ The LXP units have a rather unorthodox MIDI implementation. A unit called the Le
 1) Providing a PureData external, lxpx, that produces the correct SysEx messages given parameter number and value and input.
 
 2) Providing PureData patches that functions as software MIDI controller interfaces for the LXP units effects.
+
+This repo contains:
+
+* C source code for the lxpx PD external as well as a selection of binaries
+* Effect patches based on parameter definitions from owner's manuals
+* A Python script for autogenerating effect patches based on a PD patch template
