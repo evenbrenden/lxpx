@@ -10,13 +10,13 @@ SOURCES = lxpx.c
 
 # list all pd objects (i.e. myobject.pd) files here, and their helpfiles will
 # be included automatically
-PDOBJECTS = lxpx-help.pd
+PDOBJECTS = lxpx-help.pd lxpx-meta.pd
 
 # example patches and related files, in the 'examples' subfolder
-EXAMPLES = bothtogether.pd
+EXAMPLES =
 
 # manuals and related files, in the 'manual' subfolder
-MANUAL = manual.txt
+MANUAL = 
 
 # if you want to include any other files in the source and binary tarballs,
 # list them here.  This can be anything from header files, test patches,
@@ -36,7 +36,7 @@ UNITTESTS =
 #------------------------------------------------------------------------------#
 
 ALL_CFLAGS = -I"$(PD_INCLUDE)"
-ALL_LDFLAGS = lxpx_helpers.o 
+ALL_LDFLAGS = lxpx_helpers.o
 SHARED_LDFLAGS =
 ALL_LIBS = 
 
@@ -139,21 +139,28 @@ ifeq ($(UNAME),ANDROID)
   SHARED_EXTENSION = so
   OS = android
   PD_PATH = /usr
-  NDK_BASE := /usr/local/android-ndk
+  NDK_BASE := /opt/android-ndk
   NDK_PLATFORM_LEVEL ?= 5
   NDK_ABI=arm
+  NDK_COMPILER_VERSION = 4.6
   NDK_SYSROOT=$(NDK_BASE)/platforms/android-$(NDK_PLATFORM_LEVEL)/arch-$(NDK_ABI)
-  NDK_UNAME := $(shell uname -s | tr '[A-Z]' '[a-z]')
-  NDK_COMPILER_VERSION=4.6
-  NDK_TOOLCHAIN=$(wildcard \
-	$(NDK_BASE)/toolchains/$(NDK_ABI)*-$(NDK_COMPILER_VERSION)/prebuilt/$(NDK_UNAME)-x86)
-  CC := $(wildcard $(NDK_TOOLCHAIN)/bin/*-linux-android*-gcc) --sysroot=$(NDK_SYSROOT)
+  NDK_UNAME:=$(shell uname -s | tr '[A-Z]' '[a-z]')
+  ifeq ($(NDK_ABI),x86)
+    HOST = i686-linux-android
+    NDK_TOOLCHAIN = $(NDK_ABI)-$(NDK_COMPILER_VERSION)
+  else
+    HOST = $(NDK_ABI)-linux-androideabi
+    NDK_TOOLCHAIN = $(HOST)-$(NDK_COMPILER_VERSION)
+  endif
+  NDK_TOOLCHAIN_BASE=$(NDK_BASE)/toolchains/$(NDK_TOOLCHAIN)/prebuilt/$(NDK_UNAME)-$(NDK_PROCESSOR)
+  CC := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-gcc --sysroot=$(NDK_SYSROOT)
+  LD := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-ld
   OPT_CFLAGS = -O6 -funroll-loops -fomit-frame-pointer
   CFLAGS += 
   LDFLAGS += -rdynamic -shared
   SHARED_LDFLAGS += -Wl,-soname,$(SHARED_LIB) -shared
   LIBS += -lc $(LIBS_android)
-  STRIP := $(wildcard $(NDK_TOOLCHAIN)/bin/$(NDK_ABI)-linux-android*-strip) \
+  STRIP := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-strip) \
 	--strip-unneeded -R .note -R .comment
   DISTBINDIR=$(DISTDIR)-$(OS)-$(shell uname -m)
 endif
