@@ -8,8 +8,6 @@ LIBRARY_NAME = lxpx
 # objects, the matching .tcl file too
 SOURCES = lxpx.c
 
-# PS! lxpx_helpers.c is not recompiled in this make. need to figure out how. for now it helps adding it to SOURCES, make (lxpx_helpers.o will be made but linking will fail), then remove it from SOURCES again and fianlly make again.
-
 # list all pd objects (i.e. myobject.pd) files here, and their helpfiles will
 # be included automatically
 PDOBJECTS = lxpx-help.pd lxpx-meta.pd
@@ -38,7 +36,7 @@ UNITTESTS =
 #------------------------------------------------------------------------------#
 
 ALL_CFLAGS = -I"$(PD_INCLUDE)"
-ALL_LDFLAGS = lxpx_helpers.o
+ALL_LDFLAGS = lxpx_helpers.c
 SHARED_LDFLAGS =
 ALL_LIBS = 
 
